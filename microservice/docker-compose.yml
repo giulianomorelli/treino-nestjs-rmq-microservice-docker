@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  microservice:
+    build: .
+    entrypoint: .docker/entrypoint.sh
+    container_name: microservice
+    ports:
+      - "3001:3001"
+    volumes:
+      - .:/home/node/microservice
+    networks:
+        - mynet
+
+networks:
+  mynet:
+    external: true
+#
+#networks:
+#  mynet:
+#    driver: bridge
